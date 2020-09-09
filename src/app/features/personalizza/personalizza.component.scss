@@ -1,0 +1,164 @@
+.header {
+    height: 70px;
+    width: 100%;
+    background-image: linear-gradient(90deg, rgba(171, 225, 250, 1), rgba(213, 171, 255, 1) 100%);
+}
+
+.title {
+    margin: 0;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 24pt;
+    padding-left: 170px;
+}
+
+.carrello {
+    margin: 0;
+    position: relative;
+    height: 30px;
+    width: 30px;
+    float: right;
+    padding-top: 19px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.cart {
+    position: relative;
+    margin: 0px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14pt;
+    float: right;
+    padding-right: 70px;
+    padding-top: 23px;
+    text-align: center;
+}
+
+.over {
+    height: 70px;
+    width: 250px;
+    float: right;
+    cursor: pointer;
+}
+
+.over:hover {
+    background-color: white;
+    .cart {
+        color: rgb(213, 171, 255);
+    }
+}
+
+.background {
+    position: relative;
+    margin: 0;
+    height: 130px;
+    background-image: linear-gradient(90deg, rgba(129, 210, 248, 1), rgba(193, 129, 255, 1) 100%);
+}
+
+.product {
+    position: absolute;
+    height: 450px;
+    width: 620px;
+    background-color: white;
+    border-style: ridge;
+    margin-left: 400px;
+    * {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .img {
+        padding: 20px;
+        height: 340px;
+        width: 250px;
+        float: left;
+    }
+    ul#menu li {
+        display: inline;
+        padding: 20px;
+    }
+    a {
+        text-decoration: none;
+        color: lightgray
+    }
+    .dot1 {
+        margin-right: 18px;
+        height: 35px;
+        width: 35px;
+        background-color: white;
+        border: 1px solid gray;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .dot2 {
+        margin-right: 20px;
+        height: 35px;
+        width: 35px;
+        background-color: black;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .dot3 {
+        margin-right: 20px;
+        height: 35px;
+        width: 35px;
+        background-color: lightseagreen;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .dot4 {
+        margin-right: 20px;
+        height: 35px;
+        width: 35px;
+        background-color: greenyellow;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .dot5 {
+        margin-right: 20px;
+        height: 35px;
+        width: 35px;
+        background-color: lightblue;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .dot6 {
+        margin-right: 20px;
+        height: 35px;
+        width: 35px;
+        background-color: lightsalmon;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    input[type=text] {
+        width: 300px;
+        padding: 10px;
+        border: none;
+        background-color: rgb(240, 240, 240);
+        color: gray;
+    }
+    .bottone {
+        padding: 15px;
+        padding-top: 25px;
+        float: right;
+        position: relative;
+    }
+    .myButton {
+        background-color: rgb(193, 129, 255);
+        border-radius: 3px;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 15px;
+        padding: 12px 40px;
+    }
+    .myButton:hover {
+        background-color: rgba(129, 210, 248, 1);
+    }
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
+}
