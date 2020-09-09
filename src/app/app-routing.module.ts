@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'signin', loadChildren: () => import('./features/register/register.module').then(m => m.RegisterModule) },
   { path: 'home', loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule) },
   { path: 'personalizza', loadChildren: () => import('./features/personalizza/personalizza.module').then(m => m.PersonalizzaModule) },
+  { path: 'carrello', loadChildren: () => import('./features/carrello/carrello.module').then(m => m.CarrelloModule) }
 ]
 
 @NgModule({
