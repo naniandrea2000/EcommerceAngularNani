@@ -1,0 +1,141 @@
+    .header {
+        height: 70px;
+        width: 100%;
+        background-image: linear-gradient(90deg, rgba(171, 225, 250, 1), rgba(213, 171, 255, 1) 100%);
+    }
+    
+    .title {
+        margin: 0;
+        padding: 15px;
+        padding-right: 300px;
+        color: white;
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 24pt;
+    }
+    
+    .house {
+        margin: 0;
+        position: relative;
+        height: 30px;
+        width: 30px;
+        float: left;
+        padding-top: 19px;
+        padding-left: 37px;
+        cursor: pointer;
+    }
+    
+    .scritta {
+        position: relative;
+        margin: 0px;
+        color: white;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 14pt;
+        float: left;
+        padding-left: 20px;
+        padding-top: 23px;
+        text-align: center;
+    }
+    
+    .home {
+        height: 70px;
+        width: 250px;
+        float: left;
+        cursor: pointer;
+    }
+    
+    .home:hover {
+        background-color: white;
+        .scritta {
+            color: rgb(213, 171, 255);
+        }
+    }
+    
+    .background {
+        position: relative;
+        margin: 0;
+        height: 130px;
+        background-image: linear-gradient(90deg, rgba(129, 210, 248, 1), rgba(193, 129, 255, 1) 100%);
+    }
+    
+    .product {
+        margin-top: 40px;
+        position: absolute;
+        width: 620px;
+        background-color: white;
+        border-style: ridge;
+        margin-left: 400px;
+        box-shadow: 2px 2px #888888;
+        * {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .img {
+            padding: 20px;
+            height: 150px;
+            width: 150px;
+            float: left;
+        }
+        .costo {
+            float: right;
+            color: rgba(193, 129, 255, 1);
+            padding-right: 120px;
+            padding-top: 10px;
+        }
+        .resoconto {
+            padding-top: 10px;
+            text-align: right;
+            float: left;
+            text-decoration: none;
+            color: rgb(199, 200, 201)
+        }
+        .descrizione {
+            padding-top: 10px;
+            padding-left: 300px;
+        }
+        .bottone {
+            padding: 15px;
+            padding-top: 25px;
+            float: right;
+            position: relative;
+        }
+        .myButton {
+            background-color: rgb(193, 129, 255);
+            border-radius: 3px;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 15px;
+            padding: 12px 30px;
+        }
+        .myButton:hover {
+            background-color: rgba(129, 210, 248, 1);
+        }
+        .myButton:active {
+            position: relative;
+            top: 1px;
+        }
+        .bottone2 {
+            float: right;
+            position: relative;
+            padding: 8px;
+        }
+        .myButton2 {
+            background-color: white;
+            border: 1px solid rgb(193, 129, 255);
+            border-radius: 3px;
+            display: inline-block;
+            cursor: pointer;
+            color: rgb(193, 129, 255);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 15px;
+            padding: 10px 65px;
+        }
+        .myButton2:hover {
+            background-color: rgba(129, 210, 248, 1);
+        }
+        .myButton2:active {
+            position: relative;
+            top: 1px;
+        }
+    }
