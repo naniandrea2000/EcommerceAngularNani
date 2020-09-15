@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarrelloComponent implements OnInit {
 
+  prosegui:number;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.prosegui=0;
+  }
+
+  prosegui1(){
+    this.prosegui++;
+    console.log(this.prosegui)
   }
 
 }
