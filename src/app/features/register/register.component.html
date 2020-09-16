@@ -1,13 +1,13 @@
 <div class="login">
-    <form class="loginForm">
+    <form class="loginForm" [formGroup]="registerForm" (ngSubmit)="eseguiRegistrazione()" ngNativeValidate>
         <button class="btn-registrati" routerLink="/login">×</button>
         <div>
             <img src="../assets/logo.png" alt="logo" class="logo">
             <p class="title">Registrati</p>
-            <input id="username" placeholder="username" class="inputFields">
+            <input id="username" placeholder="username" formControlName="username" class="inputFields">
         </div>
         <div>
-            <input id="password" placeholder="password" class="inputFieldsPassword">
+            <input id="password" placeholder="password" formControlName="password" class="inputFieldsPassword">
             <img src="../../../assets/icone/eye.png" alt="occhio" class="eye">
         </div>
         <br><br>

@@ -7,13 +7,11 @@ import { User } from 'src/app/core/model/user.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class SignupService {
+export class RegisterService {
 
   constructor(private router: Router, private loginRegisterService: loginRegisterService, private store: Store) { }
 
-  executeSignUp(user: User){
-    console.log("Signup service")
-
+  registrazione(user: User){
     this.loginRegisterService.eseguiRegistrazione(user).subscribe(()=>{"registrazione effettuata"}, ()=>{"registrazione fallita"})
   }
 }
