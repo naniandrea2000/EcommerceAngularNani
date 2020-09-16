@@ -15,8 +15,12 @@ export class CarrelloComponent implements OnInit {
     this.prosegui=0;
   }
 
-  prosegui1(){
-    this.prosegui++;
+  next(){
+    this.prosegui+=1;
+    console.log(this.prosegui)
+  }
+  back(){
+    this.prosegui-=1;
     console.log(this.prosegui)
   }
 

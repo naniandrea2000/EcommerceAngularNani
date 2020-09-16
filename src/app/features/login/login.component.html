@@ -1,19 +1,19 @@
 <div class="login">
-    <form class="loginForm">
+    <form class="loginForm" [formGroup]="loginForm" (ngSubmit)="eseguiLogin()" ngNativeValidate>
         <button class="btn-registrati" [routerLink]="['/signin']" type="button">+</button>
         <div>
             <img src="../../../assets/logo.png " alt="logo " class="logo ">
             <p class="title ">Accedi</p>
-            <input id="username " placeholder="username " class="inputFields ">
+            <input id="username" formControlName="username" placeholder="username " class="inputFields ">
         </div>
         <div>
-            <input id="password " placeholder="password " class="inputFieldsPassword ">
+            <input id="password" formControlName="password" placeholder="password " class="inputFieldsPassword ">
             <img src="../../../assets/icone/eye.png " alt="occhio " class="eye ">
         </div>
         <div>
             <span class="password ">memorizza password</span>
             <label class="switch ">
-                <input type="checkbox " formControlName="salva ">
+                <input type="checkbox ">
                 <span class="slider round "></span>
             </label>
         </div>

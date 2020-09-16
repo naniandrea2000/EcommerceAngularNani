@@ -1,13 +1,13 @@
 <div class="header">
-    <div class="home">
+    <div class="home" routerLink="/home">
         <img src="../../../assets/icone/home.png" alt="home" class="house">
         <p class="scritta">Home</p>
     </div>
     <p class="title">Carrello</p>
 </div>
 <div class="background">
-    <div class="product">
-        <div>
+    <div class="product" [ngSwitch]="prosegui">
+        <div *ngSwitchCase="0">
             <img src="../../../assets/img/samsung2.jpg" class="img">
             <p class="costo">€ 15</p>
             <div class="resoconto">
@@ -35,107 +35,105 @@
                     <span class="dot3"></span>
                 </div>
                 <div class="bottone3">
-                    <a class="myButton3" (click)="prosegui1()">PROSEGUI</a>
+                    <a class="myButton3" (click)="next()">PROSEGUI</a>
                 </div>
             </div>
+        </div>
 
-            <br><br><br><br><br>
-
-            <div>
-                <form>
-                    <div>
-                        <label for="nome" class="label">Nome</label>
-                        <input type="text" id="nome" class="form">
-                    </div>
-                    <div>
-                        <label for="nome" class="label">Cognome</label>
-                        <input type="text" id="nome" class="form">
-                    </div>
-                    <div>
-                        <label for="nome" class="label">Cellulare</label>
-                        <input type="text" id="nome" class="form">
-                    </div>
-                    <div class="inline">
-                        <label for="nome" class="label">Citta</label>
-                        <input type="text" id="nome" class="form2">
-                        <label for="nome" class="label">Cap</label>
-                        <input type="text" id="nome" class="form2">
-                    </div>
-                    <div>
-                        <label for="nome" class="label">Indirizzo</label>
-                        <input type="text" id="nome" class="form3">
-                        <label for="nome" class="label">N</label>
-                        <input type="text" id="nome" class="form4">
-                    </div>
-                    <div>
-                        <label for="nome" class="label">Informazioni per corriere</label>
-                        <input type="text" id="nome" class="form">
-                    </div>
-                </form>
-                <hr>
-                <div class="footer">
-                    <div class="bottone4">
-                        <a class="myButton4" (click)="prosegui1()">INDIETRO</a>
-                    </div>
-                    <div class="dots2">
-                        <span class="dot2"></span>
-                        <span class="dot1"></span>
-                        <span class="dot3"></span>
-                    </div>
-                    <div class="bottone5">
-                        <a class="myButton5" (click)="prosegui1()">PROSEGUI</a>
-                    </div>
+        <div class="step2" *ngSwitchCase="1">
+            <form>
+                <div>
+                    <label for="nome" class="label">Nome</label>
+                    <input type="text" id="nome" class="form">
+                </div>
+                <div>
+                    <label for="nome" class="label">Cognome</label>
+                    <input type="text" id="nome" class="form">
+                </div>
+                <div>
+                    <label for="nome" class="label">Cellulare</label>
+                    <input type="text" id="nome" class="form">
+                </div>
+                <div class="inline">
+                    <label for="nome" class="label">Citta</label>
+                    <input type="text" id="nome" class="form2">
+                    <label for="nome" class="label">Cap</label>
+                    <input type="text" id="nome" class="form2">
+                </div>
+                <div>
+                    <label for="nome" class="label">Indirizzo</label>
+                    <input type="text" id="nome" class="form3">
+                    <label for="nome" class="label">N</label>
+                    <input type="text" id="nome" class="form4">
+                </div>
+                <div>
+                    <label for="nome" class="label">Informazioni per corriere</label>
+                    <input type="text" id="nome" class="form">
+                </div>
+            </form>
+            <hr>
+            <div class="footer">
+                <div class="bottone4">
+                    <a class="myButton4" (click)="back()">INDIETRO</a>
+                </div>
+                <div class="dots2">
+                    <span class="dot2"></span>
+                    <span class="dot1"></span>
+                    <span class="dot3"></span>
+                </div>
+                <div class="bottone5">
+                    <a class="myButton5" (click)="next()">PROSEGUI</a>
                 </div>
             </div>
-            <br><br><br><br>
-            <div>
-                <div class="prodotti">
-                    <div class="resoconto2">
-                        <p>Prodotti acquistati</p>
-                        <p>Prezzo</p>
-                        <p>Spedizione</p>
-                        <p>Indirizzo</p>
-                        <p>Spedito al sig</p>
-                    </div>
-                    <div class="descrizione2">
-                        <p>Samsung s10</p>
-                        <p>Nero</p>
-                        <p>nulla</p>
-                        <p>bianchi</p>
-                        <p>nulla</p>
-                    </div>
+        </div>
+
+        <div *ngSwitchCase="2">
+            <div class="prodotti">
+                <div class="resoconto2">
+                    <p>Prodotti acquistati</p>
+                    <p>Prezzo</p>
+                    <p>Spedizione</p>
+                    <p>Indirizzo</p>
+                    <p>Spedito al sig</p>
                 </div>
-                <form>
-                    <div>
-                        <label for="nome" class="label">Seleziona metodo di pagamento</label>
-                        <select name="nome" id="nome" class="form">
+                <div class="descrizione2">
+                    <p>Samsung s10</p>
+                    <p>Nero</p>
+                    <p>nulla</p>
+                    <p>bianchi</p>
+                    <p>nulla</p>
+                </div>
+            </div>
+            <form>
+                <div>
+                    <label for="nome" class="label">Seleziona metodo di pagamento</label>
+                    <select name="nome" id="nome" class="form">
                             <option value="carta" class="option">Carta di credito</option>
                         </select>
-                    </div>
-                    <div>
-                        <label for="nome" class="label">Tipo carta</label>
-                        <input type="text" id="nome" class="form">
-                    </div>
-                    <div>
-                        <label for="nome" class="label">Numero carta</label>
-                        <input type="text" id="nome" class="form5">
-                        <label for="nome" class="label">CVC</label>
-                        <input type="text" id="nome" class="form6">
-                    </div>
-                </form>
-                <hr>
-                <div class="footer">
-                    <div class="bottone4">
-                        <a class="myButton4" (click)="prosegui1()">INDIETRO</a>
-                    </div>
-                    <div class="dots2">
-                        <span class="dot2"></span>
-                        <span class="dot3"></span>
-                        <span class="dot1"></span>
-                    </div>
-                    <div class="bottone5">
-                        <a class="myButton5" (click)="prosegui1()">ACQUISTA</a>
-                    </div>
+                </div>
+                <div>
+                    <label for="nome" class="label">Tipo carta</label>
+                    <input type="text" id="nome" class="form">
+                </div>
+                <div>
+                    <label for="nome" class="label">Numero carta</label>
+                    <input type="text" id="nome" class="form5">
+                    <label for="nome" class="label">CVC</label>
+                    <input type="text" id="nome" class="form6">
+                </div>
+            </form>
+            <hr>
+            <div class="footer">
+                <div class="bottone4">
+                    <a class="myButton4" (click)="back()">INDIETRO</a>
+                </div>
+                <div class="dots2">
+                    <span class="dot2"></span>
+                    <span class="dot3"></span>
+                    <span class="dot1"></span>
+                </div>
+                <div class="bottone5">
+                    <a class="myButton5" routerLink="/home">ACQUISTA</a>
                 </div>
             </div>
         </div>
