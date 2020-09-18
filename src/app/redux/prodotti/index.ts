@@ -9,7 +9,7 @@ export const selectProdotti = createSelector(
     (state: ProdottiState) => state.prodotti
 )
 
-export const getClothesById = createSelector(
+export const getProdottoById = createSelector(
     selectProdottiState,
     (state: ProdottiState, props: { id: number }) => state.prodotti.find(item => item.id === props.id)
 );

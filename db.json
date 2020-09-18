@@ -20,19 +20,28 @@
             "id": 0,
             "nome": "Samsung s20",
             "img1": "../../../assets/img/samsung.jpg",
-            "img2": "../../../assets/img/samsung2.jpg"
+            "img2": "../../../assets/img/samsung2.jpg",
+            "colore": "bianco",
+            "testo": "",
+            "bordi": "bianco"
         },
         {
             "id": 1,
             "nome": "macbook",
             "img1": "../../../assets/img/mac.jpg",
-            "img2": "../../../assets/img/mac2.jpg"
+            "img2": "../../../assets/img/mac2.jpg",
+            "colore": "bianco",
+            "testo": "",
+            "bordi": "bianco"
         },
         {
             "id": 2,
             "nome": "iPad pro",
             "img1": "../../../assets/img/ipad.jpg",
-            "img2": "../../../assets/img/ipad2.jpg"
+            "img2": "../../../assets/img/ipad2.jpg",
+            "colore": "bianco",
+            "testo": "",
+            "bordi": "bianco"
         }
     ]
 }
