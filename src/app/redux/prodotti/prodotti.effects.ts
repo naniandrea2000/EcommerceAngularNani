@@ -3,7 +3,7 @@ import { HttpComunicationsService } from 'src/app/core/http-comunications/http-c
 import { Prodotto } from 'src/app/core/model/prodotto.interface';
 import { retrieveAllProdotti,initProdotti } from './prodotti.action';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import {switchMap, map, catchError, tap} from 'rxjs/operators';
+import {switchMap, map, tap} from 'rxjs/operators';
 
 @Injectable()
 export class ProdottiEffects{

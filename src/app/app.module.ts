@@ -8,6 +8,10 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './redux';
 import { UsersEffect } from './redux/login/loginRegister.effects';
+import { ProdottiEffects } from './redux/prodotti/prodotti.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment.prod';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,8 @@ import { UsersEffect } from './redux/login/loginRegister.effects';
     AppRoutingModule,
     CoreModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([UsersEffect]),
+    EffectsModule.forRoot([UsersEffect,ProdottiEffects ]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,14 +16,7 @@ export class PersonalizzaComponent implements OnInit {
 
   private subscription: Subscription = new Subscription();
 
-  @Input()
   prodotto: Prodotto;
-
-  @Output()
-  formSubmitEvent: EventEmitter<Prodotto> = new EventEmitter();
-
-  @Output()
-  undoEvent: EventEmitter<Prodotto> = new EventEmitter();
 
   constructor(private route: ActivatedRoute, private store: Store) { }
 
@@ -37,17 +30,5 @@ export class PersonalizzaComponent implements OnInit {
     }));
   }
 
-  /*editForm(cartItem: CartItem) {
-    this.store.dispatch(addItemToCart({cartItem}));
-    this.clothes = cartItem;
-  }*/
-
-  undo() {
-    this.prodotto = this.prodotto;
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
 
 }
