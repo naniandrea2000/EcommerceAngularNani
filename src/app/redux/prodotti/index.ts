@@ -4,7 +4,7 @@ import { ProdottiState } from './prodotti.reducer';
 
 export const selectProdottiState = (state: AppState) => state.prodottiState;
 
-export const selectClothes = createSelector(
+export const selectProdotti = createSelector(
     selectProdottiState,
     (state: ProdottiState) => state.prodotti
 )

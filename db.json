@@ -1,19 +1,38 @@
 {
-  "users": [
-    {
-      "id": 0,
-      "username": "andreanani",
-      "password": "password"
-    },
-    {
-      "username": "user1",
-      "password": "123",
-      "id": 1
-    },
-    {
-      "username": "mario",
-      "password": "123",
-      "id": 2
-    }
-  ]
+    "users": [{
+            "id": 0,
+            "username": "andreanani",
+            "password": "password"
+        },
+        {
+            "username": "user1",
+            "password": "123",
+            "id": 1
+        },
+        {
+            "username": "mario",
+            "password": "123",
+            "id": 2
+        }
+    ],
+
+    "prodotti": [{
+            "id": 0,
+            "nome": "Samsung s20",
+            "img1": "../../../assets/img/samsung.jpg",
+            "img2": "../../../assets/img/samsung2.jpg"
+        },
+        {
+            "id": 1,
+            "nome": "macbook",
+            "img1": "../../../assets/img/mac.jpg",
+            "img2": "../../../assets/img/mac2.jpg"
+        },
+        {
+            "id": 2,
+            "nome": "iPad pro",
+            "img1": "../../../assets/img/ipad.jpg",
+            "img2": "../../../assets/img/ipad2.jpg"
+        }
+    ]
 }
