@@ -18,7 +18,7 @@ export class LoginService {
         this.store.dispatch(saveCurrentUser({user: users[0]}));
         this.router.navigateByUrl("/home");
       }else{
-        alert("Login errata");
+        alert("Login sbagliata RIPROVA");
       }
     }, ()=>{
       alert("Login in errore");

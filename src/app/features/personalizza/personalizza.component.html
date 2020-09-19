@@ -11,29 +11,62 @@
 </div>
 <div class="background">
     <div class="product">
-        <form>
+        <form [formGroup]="prodottoForm" (ngSubmit)="aggiungiAlCarrello()">
             <img src="{{prodotto.img2}}" class="img">
             <h2>Personalizza il tuo prodotto</h2>
             <h5>Colore prodotto</h5>
-            <span class="dot1"></span>
+            <!--<span class="dot1"></span>
             <span class="dot2"></span>
             <span class="dot3"></span>
             <span class="dot4"></span>
             <span class="dot5"></span>
-            <span class="dot6"></span>
+            <span class="dot6"></span>-->
+            <!-- Color -->
+            <label class="container">
+                <input type="radio" value="white" formControlName="colore">
+                <span class="color-white"></span>
+            </label>
+
+            <label class="container">
+                <input type="radio" value="black" formControlName="colore">
+                <span class="color-black"></span>
+            </label>
+
+            <label class="container">
+                <input type="radio" value="green" formControlName="colore">
+                <span class="color-light-gray"></span>
+            </label>
+
+            <label class="container">
+                <input type="radio" value="orange" formControlName="colore">
+                <span class="color-gold"></span>
+            </label>
             <h5>Testo personalizzato</h5>
 
-            <input type="text" id="testo" name="testo" placeholder="Inserisci testo">
+            <input type="text" id="testo" name="testo" placeholder="Inserisci testo" formControlName="testo">
 
             <h5>Colore bordi</h5>
-            <span class="dot1"></span>
-            <span class="dot2"></span>
+            <!--<span class="dot1"></span>
+            <span class="dot2"></span>-->
+            <div class="border">
+                <label class="container">
+                    <input type="radio" value="white" formControlName="bordi">
+                    <span class="color-white"></span>
+                </label>
+
+                <label class="container">
+                    <input type="radio" value="black" formControlName="bordi">
+                    <span class="color-black"></span>
+                </label>
+
+            </div>
+
+            <div class="bottone">
+                <button class="myButton" type="submit">AL CARRELLO</button>
+            </div>
+            <div class="bottone2">
+                <a class="myButton2">RIPRISTINA</a>
+            </div>
         </form>
-        <div class="bottone">
-            <a class="myButton">AGGIUNGI AL CARRELLO</a>
-        </div>
-        <div class="bottone2">
-            <a class="myButton2">RIPRISTINA</a>
-        </div>
     </div>
 </div>
