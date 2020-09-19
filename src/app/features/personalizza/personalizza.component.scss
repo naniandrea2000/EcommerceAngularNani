@@ -193,6 +193,7 @@
         .myButton {
             background-color: rgb(193, 129, 255);
             border-radius: 3px;
+            border: none;
             display: inline-block;
             cursor: pointer;
             color: #ffffff;
@@ -312,22 +313,6 @@
     
     .container input:checked~.color-gold {
         border: 3px solid rgb(193, 129, 255);
-    }
-    
-    .container input:checked:disabled~.color-gold {
-        border: none;
-    }
-    
-    .container input:checked:disabled~.color-black {
-        border: none;
-    }
-    
-    .container input:checked:disabled~.color-white {
-        border: none;
-    }
-    
-    .container input:checked:disabled~.color-light-gray {
-        border: none;
     }
     
     .color:after {
