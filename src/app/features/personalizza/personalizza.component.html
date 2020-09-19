@@ -4,7 +4,7 @@
         <p class="scritta">Home</p>
     </div>
     <div class="over" routerLink="/carrello">
-        <p class="cart">Carrello (2)</p>
+        <p class="cart">Carrello</p>
         <img src="../../../assets/icone/cart.png" alt="carrello" class="carrello">
     </div>
     <p class="title">Personalizza il tuo prodotto</p>
@@ -62,10 +62,10 @@
             </div>
 
             <div class="bottone">
-                <button class="myButton" type="submit">AL CARRELLO</button>
+                <button class="myButton" type="submit">AGGIUNGI AL CARRELLO</button>
             </div>
             <div class="bottone2">
-                <a class="myButton2">RIPRISTINA</a>
+                <button class="myButton2" (click)="ripristina()">RIPRISTINA</button>
             </div>
         </form>
     </div>

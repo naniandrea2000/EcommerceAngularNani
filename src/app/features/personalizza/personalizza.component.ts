@@ -58,4 +58,8 @@ export class PersonalizzaComponent implements OnInit {
     this.prodottoCarrello.bordi=this.prodottoForm.get('bordi').value;
     console.log(this.prodottoCarrello);
   }
+
+  ripristina(){
+    this.prodottoForm.reset();
+  }
 }
