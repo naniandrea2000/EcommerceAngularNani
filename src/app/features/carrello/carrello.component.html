@@ -8,28 +8,31 @@
 <div class="background">
     <div class="product" [ngSwitch]="prosegui">
         <div *ngSwitchCase="0">
-            <!--<ng-container *ngFor="let prodotto of prodotti">-->
-            <img src="/assets/img/mac2.jpg" class="img">
-            <p class="costo">€ 15</p>
-            <div class="resoconto">
-                <p>Prodotto</p>
-                <p>Colore</p>
-                <p>Testo</p>
-                <p>Colore bordi</p>
-            </div>
-            <div class="descrizione">
-                <!--<p>{{prodotto.nome}}</p>
-                <p>{{prodotto.colore}}</p>
-                <p>{{prodotto.testo}}</p>
-                <p>{{prodotto.bordi}}</p>-->
-                <p>aaaaaaa</p>
-                <p>aaaaaaa</p>
-                <p>aaaaaaa</p>
-                <p>aaaaaaa</p>
-            </div>
-            <div class="bottone2">
-                <a class="myButton2">RIMUOVI</a>
-            </div>
+            <ng-container *ngIf="((prodottoItem | async) && (prodottoItem | async).length > 0)">
+                <ng-container *ngFor="let item of prodottoItem | async">
+                    <!--<ng-container *ngFor="let prodotto of prodotti">-->
+                    <div class="container">
+                        <img src="{{item.img2}}" class="img">
+                        <p class="costo">€ 15</p>
+                        <div class="resoconto">
+                            <p>Prodotto</p>
+                            <p>Colore</p>
+                            <p>Testo</p>
+                            <p>Colore bordi</p>
+                        </div>
+                        <div class="descrizione">
+                            <p>{{item.nome}}</p>
+                            <p>{{item.colore}}</p>
+                            <p>{{item.testo}}</p>
+                            <p>{{item.bordi}}</p>
+
+                        </div>
+                        <div class="bottone2">
+                            <a class="myButton2">RIMUOVI</a>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
             <hr>
             <div class="footer">
                 <p class="totale">TOTALE</p>
@@ -43,7 +46,6 @@
                     <a class="myButton3" (click)="next()">PROSEGUI</a>
                 </div>
             </div>
-
         </div>
 
         <div class="step2" *ngSwitchCase="1">
