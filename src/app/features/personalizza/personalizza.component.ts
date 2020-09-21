@@ -19,14 +19,14 @@ export class PersonalizzaComponent implements OnInit {
   private subscription: Subscription = new Subscription();
 
   prodotto: Prodotto;
-  // prodottoCarrello: Prodotto = {
-  //   id:0,
-  //   img1: "",
-  //   img2:"",
-  //   nome: "",
-  //   colore:"",
-  //   testo:"",
-  //   bordi:"",
+   //prodottoCarrello: Prodotto = {
+    //  id:0,
+    //  img1: "",
+    //  img2:"",
+    //  nome: "",
+    //  colore:"",
+    //  testo:"",
+    //  bordi:"",
   // };
 
   prodottoForm: FormGroup;
@@ -41,12 +41,22 @@ export class PersonalizzaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.subscription.add(this.route.params.pipe(
       filter(params => params != null && params['id'] != null),
       switchMap(params => this.store.pipe(select(getProdottoById, { id: Number(params['id']) }))),
     ).subscribe(prodotto => {
       this.prodotto = prodotto;
-      console.log(this.prodotto)
+      if(this.prodotto!=null){
+        this.prodottoForm = this.fb.group({
+          id:prodotto.id,
+          colore: [prodotto.colore,Validators.required],
+          testo: [prodotto.testo,Validators.required],
+          bordi: [prodotto.bordi,Validators.required],
+        });
+
+      }
+      console.log(this.prodotto)  
     }));
     
   }

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { Prodotto } from 'src/app/core/model/prodotto.interface';
+import { getProdotti } from 'src/app/redux/carrello';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-carrello',
@@ -8,8 +13,11 @@ import { Component, OnInit } from '@angular/core';
 export class CarrelloComponent implements OnInit {
 
   prosegui:number;
+  //prodotti: Prodotto[];
 
-  constructor() { }
+  subscription=new Subscription();
+
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
     this.prosegui=0;

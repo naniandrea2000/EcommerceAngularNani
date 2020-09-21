@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { Prodotto } from 'src/app/core/model/prodotto.interface';
-import {  aggiungiProdottoCarrello, initCarrello, rimuoviProdotto } from './carrello.action';
+import { aggiungiProdottoCarrello, initCarrello, rimuoviProdotto } from './carrello.action';
 
 export interface CarrelloState{
     carrello: Prodotto[];
@@ -14,6 +14,6 @@ export const initialState: CarrelloState = {
 export const carrelloReducer = createReducer(
     initialState,
     on(initCarrello, (state, {cart}) => ({...state, cart})),
-    on(aggiungiProdottoCarrello, (state, {prodotto}) => ({ ...state, cart: [...state.carrello, prodotto] })),
+    on(aggiungiProdottoCarrello, (state, {prodotto}) => ({ ...state, carrello: [...state.carrello, prodotto] })),
     on(rimuoviProdotto, (state, {id}) => ({ ...state, cart: state.carrello.filter(item => item.id !== id) })),
 )
