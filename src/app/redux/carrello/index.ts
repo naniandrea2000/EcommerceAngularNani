@@ -1,10 +1,12 @@
- import { LoginRegisterState } from './carrello.reducer';
-import { createSelector } from '@ngrx/store';
+import { createSelector, select } from '@ngrx/store';
 import { AppState } from '..';
+import { CarrelloState } from './carrello.reducer';
 
-export const selectloginRegisterState = (state: AppState) => state.LoginRegisterState;
+export const selectClotheState = (state: AppState) => state.carrelloState;
 
-export const getCurrentUser = createSelector(
-    selectloginRegisterState,
-    (state: LoginRegisterState) => state.currentUser
-);
+//Selector = pure function per accedere a pezzo dello State (clothes in questo caso)
+//da richiamare con una get per accedere agli elementi del carrello
+export const getProdotto = createSelector(
+    selectClotheState,
+    (state: CarrelloState) => state.carrello
+)

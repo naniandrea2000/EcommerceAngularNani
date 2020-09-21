@@ -11,7 +11,7 @@
 </div>
 <div class="background">
     <div class="product">
-        <form [formGroup]="prodottoForm" (ngSubmit)="aggiungiAlCarrello()">
+        <form [formGroup]="prodottoForm" (ngSubmit)="aggiungiAlCarrello(this.prodottoForm.value)">
             <img src="{{prodotto.img2}}" class="img">
             <h2>Personalizza il tuo prodotto</h2>
             <h5>Colore prodotto</h5>

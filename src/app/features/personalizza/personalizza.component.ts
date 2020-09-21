@@ -5,6 +5,7 @@ import { select, Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { filter, switchMap } from 'rxjs/operators';
 import { Prodotto } from 'src/app/core/model/prodotto.interface';
+import { aggiungiProdottoCarrello } from 'src/app/redux/carrello/carrello.action';
 import { getProdottoById } from 'src/app/redux/prodotti';
 
 
@@ -18,15 +19,15 @@ export class PersonalizzaComponent implements OnInit {
   private subscription: Subscription = new Subscription();
 
   prodotto: Prodotto;
-  prodottoCarrello: Prodotto = {
-    id:0,
-    img1: "",
-    img2:"",
-    nome: "",
-    colore:"",
-    testo:"",
-    bordi:"",
-  };
+  // prodottoCarrello: Prodotto = {
+  //   id:0,
+  //   img1: "",
+  //   img2:"",
+  //   nome: "",
+  //   colore:"",
+  //   testo:"",
+  //   bordi:"",
+  // };
 
   prodottoForm: FormGroup;
 
@@ -50,13 +51,14 @@ export class PersonalizzaComponent implements OnInit {
     
   }
 
-  aggiungiAlCarrello(){
-    this.prodottoCarrello.id=this.prodotto.id;
-    this.prodottoCarrello.nome=this.prodotto.nome;
-    this.prodottoCarrello.colore=this.prodottoForm.get('colore').value;
-    this.prodottoCarrello.testo=this.prodottoForm.get('testo').value;
-    this.prodottoCarrello.bordi=this.prodottoForm.get('bordi').value;
-    console.log(this.prodottoCarrello);
+  aggiungiAlCarrello(prodotto: Prodotto){
+    prodotto.id=this.prodotto.id;
+    prodotto.nome=this.prodotto.nome;
+    // prodottoCarrello.colore=this.prodottoForm.get('colore').value;
+    // prodottoCarrello.testo=this.prodottoForm.get('testo').value;
+    // prodottoCarrello.bordi=this.prodottoForm.get('bordi').value;
+    console.log(prodotto);
+    this.store.dispatch(aggiungiProdottoCarrello({prodotto}));
   }
 
   ripristina(){

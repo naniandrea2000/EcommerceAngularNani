@@ -1,24 +1,19 @@
-import { createReducer, on, Action } from '@ngrx/store'
-import { User } from 'src/app/core/model/user.interface';
-import { saveCurrentUser, initUsers, insertUser } from './carrello.action';
+import { createReducer, on } from '@ngrx/store';
+import { Prodotto } from 'src/app/core/model/prodotto.interface';
+import {  aggiungiProdottoCarrello, initCarrello, rimuoviProdotto } from './carrello.action';
 
-export interface LoginRegisterState {
-    currentUser: User;
-    users: User[];
+export interface CarrelloState{
+    carrello: Prodotto[];
 }
 
-export const initialState: LoginRegisterState = {
-    currentUser: null,
-    users: []
-};
+export const initialState: CarrelloState = {
+    carrello: []
+}
 
-const loginRegisterReducerFun = createReducer(
+//gestisce transazioni State (da vecchio a nuovo stato)
+export const carrelloReducer = createReducer(
     initialState,
-    on(saveCurrentUser, (state, { user }) => ({ ...state, currentUser: user })),
-    on(initUsers, (state, { users }) => ({ ...state, users: users })),
-    on(insertUser, (state, { user }) => ({ ...state, users: [...state.users, user] }))
-);
-
-export function loginRegisterReducer(state: LoginRegisterState | undefined, action: Action) {
-    return loginRegisterReducerFun(state, action);
-}
+    on(initCarrello, (state, {cart}) => ({...state, cart})),
+    on(aggiungiProdottoCarrello, (state, {prodotto}) => ({ ...state, cart: [...state.carrello, prodotto] })),
+    on(rimuoviProdotto, (state, {id}) => ({ ...state, cart: state.carrello.filter(item => item.id !== id) })),
+)
