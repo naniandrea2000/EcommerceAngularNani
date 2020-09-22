@@ -6,6 +6,7 @@ import { PersonalizzaComponent } from './personalizza.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
+
 @NgModule({
   declarations: [PersonalizzaComponent],
   imports: [

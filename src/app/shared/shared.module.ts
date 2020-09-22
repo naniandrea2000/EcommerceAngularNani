@@ -2,19 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
+import { RemovewhitespacesPipe } from 'src/app/core/pipes/removewhitespaces.pipe';
 @NgModule({
-  declarations: [
+  declarations: [RemovewhitespacesPipe
   ],
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RemovewhitespacesPipe
   ]
 })
 export class SharedModule { }

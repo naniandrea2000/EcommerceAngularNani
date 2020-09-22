@@ -9,6 +9,7 @@ import { aggiungiProdottoCarrello } from 'src/app/redux/carrello/carrello.action
 import { getProdottoById } from 'src/app/redux/prodotti';
 
 
+
 @Component({
   selector: 'app-personalizza',
   templateUrl: './personalizza.component.html',
@@ -54,7 +55,7 @@ export class PersonalizzaComponent implements OnInit {
           testo: [prodotto.testo,Validators.required],
           bordi: [prodotto.bordi,Validators.required],
         });
-
+        console.log(this.prodotto);
       }
       console.log(this.prodotto)  
     }));

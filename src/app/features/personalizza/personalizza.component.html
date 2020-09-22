@@ -12,7 +12,7 @@
 <div class="background">
     <div class="product">
         <form [formGroup]="prodottoForm" (ngSubmit)="aggiungiAlCarrello(this.prodottoForm.value)">
-            <img src="{{prodotto.img2}}" class="img">
+            <img src="/../assets/img/{{prodotto.nome | lowercase | removewhitespaces}}.jpg" class="img">
             <h2>Personalizza il tuo prodotto</h2>
             <h5>Colore prodotto</h5>
 
