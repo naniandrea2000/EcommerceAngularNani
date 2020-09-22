@@ -13,7 +13,7 @@
                     <!--<ng-container *ngFor="let prodotto of prodotti">-->
                     <div class="container">
                         <img src="/../assets/img/{{item.nome | lowercase | removewhitespaces}}_{{item.colore}}.jpg" class="img">
-                        <p class="costo">€ 15</p>
+                        <p class="costo">€ {{item.prezzo}}</p>
                         <div class="resoconto">
                             <p>Prodotto</p>
                             <p>Colore</p>

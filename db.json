@@ -27,7 +27,8 @@
             "img2": "/assets/img/samsung2.jpg",
             "colore": "bianco",
             "testo": " ",
-            "bordi": "bianco"
+            "bordi": "bianco",
+            "prezzo": 600
         },
         {
             "id": 1,
@@ -36,7 +37,8 @@
             "img2": "/assets/img/mac2.jpg",
             "colore": "bianco",
             "testo": " ",
-            "bordi": "bianco"
+            "bordi": "bianco",
+            "prezzo": 1200
         },
         {
             "id": 2,
@@ -45,7 +47,8 @@
             "img2": "/assets/img/ipad2.jpg",
             "colore": "bianco",
             "testo": " ",
-            "bordi": "bianco"
+            "bordi": "bianco",
+            "prezzo": 700
         }
     ]
 }

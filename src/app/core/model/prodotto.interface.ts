@@ -6,4 +6,5 @@ export interface Prodotto {
     colore: string;
     testo: string;
     bordi: string;
+    prezzo:number;
 }

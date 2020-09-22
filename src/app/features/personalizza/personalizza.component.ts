@@ -68,6 +68,7 @@ export class PersonalizzaComponent implements OnInit {
     prodotto.nome=this.prodotto.nome;
     prodotto.img1=this.prodotto.img1;
     prodotto.img2=this.prodotto.img2;
+    prodotto.prezzo=this.prodotto.prezzo;
     // prodottoCarrello.colore=this.prodottoForm.get('colore').value;
     // prodottoCarrello.testo=this.prodottoForm.get('testo').value;
     // prodottoCarrello.bordi=this.prodottoForm.get('bordi').value;
