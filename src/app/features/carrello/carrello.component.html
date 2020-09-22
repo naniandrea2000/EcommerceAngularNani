@@ -26,7 +26,7 @@
                             <p>{{item.testo}}</p>
                             <p>{{item.bordi}}</p>
                         </div>
-                        <div class="bottone2" (click)="rimuoviProdotto(item.id)">
+                        <div class="bottone2" (click)="rimuoviProdotto(item.id, item.prezzo)">
                             <a class="myButton2">RIMUOVI</a>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
             <hr>
             <div class="footer">
                 <p class="totale">TOTALE</p>
-                <p class="prezzo">30€</p>
+                <p class="prezzo">{{this.totale}}</p>
                 <div class="dots">
                     <span class="dot1"></span>
                     <span class="dot2"></span>

@@ -16,6 +16,8 @@ export class CarrelloComponent implements OnInit {
   prosegui:number;
   prodotti: Prodotto[]=[];
 
+  totale:number = 0;
+
   subscription=new Subscription();
 
   constructor(private store: Store) { }
@@ -30,6 +32,7 @@ export class CarrelloComponent implements OnInit {
       this.prodotti=prodotti;
     });
     console.log(this.prodotti);
+    this.calcolaTotale();
   }
 
   next(){
@@ -39,12 +42,21 @@ export class CarrelloComponent implements OnInit {
     this.prosegui-=1;
   }
 
-  rimuoviProdotto(id:number){
+  calcolaTotale(){
+    this.prodotti.forEach(prodotto => {
+      console.log(this.totale);
+      console.log(prodotto.prezzo);
+      this.totale+=prodotto.prezzo;
+    });
+  }
+
+  rimuoviProdotto(id:number, prezzo:number){
     var copy=Array.from(this.prodotti);
     const index=copy.findIndex(x=> x.id=== id);
     copy.splice(index,1);
     this.prodotti=copy;
     this.updateCarrello(this.prodotti);
+    this.totale-=prezzo;
   }
 
   updateCarrello(carrello: Prodotto[]){
