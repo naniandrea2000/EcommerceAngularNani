@@ -24,7 +24,6 @@ export class CarrelloComponent implements OnInit {
         select(getProdotti)); 
     }
 
-
   ngOnInit(): void {
     this.prosegui=0;
     this.prodottoItem.forEach(prodotti => {
@@ -47,7 +46,6 @@ export class CarrelloComponent implements OnInit {
     this.prodotti=copy;
     this.updateCarrello(this.prodotti);
   }
-
 
   updateCarrello(carrello: Prodotto[]){
     this.store.dispatch(initCarrello({carrello}));
