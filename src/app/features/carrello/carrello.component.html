@@ -8,6 +8,12 @@
 <div class="background">
     <div class="product" [ngSwitch]="prosegui">
         <div *ngSwitchCase="0">
+            <ng-container *ngIf="this.totale===0">
+                <div class="vuoto">
+                    <h1>CARRELLO VUOTO</h1>
+                    <h2>Torna alla home per fare i tuoi acquisti</h2>
+                </div>
+            </ng-container>
             <ng-container *ngIf="((prodottoItem | async) && (prodottoItem | async).length > 0)">
                 <ng-container *ngFor="let item of prodotti">
                     <!--<ng-container *ngFor="let prodotto of prodotti">-->
@@ -33,18 +39,20 @@
                 </ng-container>
             </ng-container>
             <hr>
-            <div class="footer">
-                <p class="totale">TOTALE</p>
-                <p class="prezzo">{{this.totale}} €</p>
-                <div class="dots">
-                    <span class="dot1"></span>
-                    <span class="dot2"></span>
-                    <span class="dot3"></span>
+            <ng-container *ngIf="this.totale!=0">
+                <div class="footer">
+                    <p class="totale">TOTALE</p>
+                    <p class="prezzo">{{this.totale}} €</p>
+                    <div class="dots">
+                        <span class="dot1"></span>
+                        <span class="dot2"></span>
+                        <span class="dot3"></span>
+                    </div>
+                    <div class="bottone3">
+                        <a class="myButton3" (click)="next()">PROSEGUI</a>
+                    </div>
                 </div>
-                <div class="bottone3">
-                    <a class="myButton3" (click)="next()">PROSEGUI</a>
-                </div>
-            </div>
+            </ng-container>
         </div>
 
         <div class="step2" *ngSwitchCase="1">
