@@ -4,6 +4,10 @@ import { Prodotto } from 'src/app/core/model/prodotto.interface';
 import { getProdotti } from 'src/app/redux/carrello';
 import { Observable, Subscription } from 'rxjs';
 import { initCarrello } from 'src/app/redux/carrello/carrello.action';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpHeaders } from '@angular/common/http';
+import { HttpComunicationsService } from 'src/app/core/http-comunications/http-comunications.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,12 +19,13 @@ export class CarrelloComponent implements OnInit {
 
   prosegui:number;
   prodotti: Prodotto[]=[];
+  pagaForm:FormGroup;
 
   totale:number = 0;
 
   subscription=new Subscription();
 
-  constructor(private store: Store) { }
+  constructor(private store: Store,private fb:FormBuilder,private http: HttpComunicationsService,private router:Router) { }
 
   get prodottoItem(): Observable<Prodotto[]> {    return this.store.pipe(      
         select(getProdotti)); 
@@ -33,6 +38,13 @@ export class CarrelloComponent implements OnInit {
     });
     console.log(this.prodotti);
     this.calcolaTotale();
+    this.pagaForm=this.fb.group({
+      method: ['',Validators.required],
+      type: ['',Validators.required],
+      number: ['',Validators.required],
+      cvv: ['',Validators.compose([Validators.required,Validators.minLength(3)])],
+    })
+    
   }
 
   next(){
@@ -62,5 +74,29 @@ export class CarrelloComponent implements OnInit {
   updateCarrello(carrello: Prodotto[]){
     this.store.dispatch(initCarrello({carrello}));
   }
+
+  inviaMail(){
+    
+    let msg:string="Hai fatto un acquisto su nani.it\nPrezzo: "+this.totale+"\n";
+    msg+="Prodotti: "
+    this.prodotti.forEach(prodotto => {
+      msg+=prodotto.nome+" "+prodotto.colore+" "+prodotto.prezzo+"\n";
+    });
+    msg+="Shipping:\n"
+    msg+="indirizzo"+" "+"citta"+" "+"cap";
+    console.log("Sto iinviando la mailllll")
+    const email = this.pagaForm.value;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    this.http.sendMail('https://formspree.io/xgepekey',
+        { name: "User", replyto: 'andreanani1400@gmail.com', message: msg},
+        { 'headers': headers }).subscribe(
+          response => {
+            console.log(response+" risposta");
+          }
+        );
+        window.alert("Acquisto effettuato")
+    this.router.navigateByUrl("/home");
+  }
+
 
 }

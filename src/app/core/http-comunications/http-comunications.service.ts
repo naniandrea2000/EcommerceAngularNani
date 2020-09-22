@@ -43,4 +43,11 @@ export class HttpComunicationsService {
     );
   }
 
+
+  sendMail(url: string, body: { name: any; replyto: any; message: any; }, arg2: {
+    headers: import("@angular/common/http").HttpHeaders;
+  }) {
+    return this.httpClient.post(url,body,arg2); 
+  }
+
 }
