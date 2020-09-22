@@ -12,7 +12,7 @@
                 <ng-container *ngFor="let item of prodotti">
                     <!--<ng-container *ngFor="let prodotto of prodotti">-->
                     <div class="container">
-                        <img src="{{item.img2}}" class="img">
+                        <img src="/../assets/img/{{item.nome | lowercase | removewhitespaces}}_{{item.colore}}.jpg" class="img">
                         <p class="costo">€ 15</p>
                         <div class="resoconto">
                             <p>Prodotto</p>
@@ -25,7 +25,6 @@
                             <p>{{item.colore}}</p>
                             <p>{{item.testo}}</p>
                             <p>{{item.bordi}}</p>
-
                         </div>
                         <div class="bottone2" (click)="rimuoviProdotto(item.id)">
                             <a class="myButton2">RIMUOVI</a>

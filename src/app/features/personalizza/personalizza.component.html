@@ -12,26 +12,26 @@
 <div class="background">
     <div class="product">
         <form [formGroup]="prodottoForm" (ngSubmit)="aggiungiAlCarrello(this.prodottoForm.value)">
-            <img src="/../assets/img/{{prodotto.nome | lowercase | removewhitespaces}}_{{prodotto.colore}}.jpg" class="img">
+            <img src="/../assets/img/{{prodotto.nome | lowercase | removewhitespaces}}_{{this.colore}}.jpg" class="img">
             <h2>Personalizza il tuo prodotto</h2>
             <h5>Colore prodotto</h5>
             <label class="container">
-                    <input type="radio" value="bianco" formControlName="colore">
+                    <input type="radio" value="bianco" formControlName="colore" (click)="cambioColore('bianco')">
                     <span class="color-white"></span>
                 </label>
 
             <label class="container">
-                    <input type="radio" value="nero" formControlName="colore">
+                    <input type="radio" value="nero" formControlName="colore"(click)="cambioColore('nero')">
                     <span class="color-black"></span>
                 </label>
 
             <label class="container">
-                    <input type="radio" value="grigio" formControlName="colore">
+                    <input type="radio" value="grigio" formControlName="colore" (click)="cambioColore('grigio')">
                     <span class="color-light-gray"></span>
                 </label>
 
             <label class="container">
-                    <input type="radio" value="oro" formControlName="colore">
+                    <input type="radio" value="oro" formControlName="colore" (click)="cambioColore('oro')">
                     <span class="color-gold"></span>
                 </label>
             <h5>Testo personalizzato</h5>

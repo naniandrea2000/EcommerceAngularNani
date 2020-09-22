@@ -20,6 +20,7 @@ export class PersonalizzaComponent implements OnInit {
   private subscription: Subscription = new Subscription();
 
   prodotto: Prodotto;
+  colore: string;
    //prodottoCarrello: Prodotto = {
     //  id:0,
     //  img1: "",
@@ -59,7 +60,7 @@ export class PersonalizzaComponent implements OnInit {
       }
       console.log(this.prodotto)  
     }));
-    
+    this.colore=this.prodotto.colore;
   }
 
   aggiungiAlCarrello(prodotto: Prodotto){
@@ -77,6 +78,16 @@ export class PersonalizzaComponent implements OnInit {
   }
 
   ripristina(){
-    this.prodottoForm.reset();
+    this.prodottoForm = this.fb.group({
+      id:this.prodotto.id,
+      colore: ["bianco",Validators.required],
+      testo: [" ",Validators.required],
+      bordi: ["bianco",Validators.required],
+    });
+  }
+
+  cambioColore(colore:string){
+    console.log(colore);
+    this.colore=colore;
   }
 }
