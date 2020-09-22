@@ -79,12 +79,8 @@ export class PersonalizzaComponent implements OnInit {
   }
 
   ripristina(){
-    this.prodottoForm = this.fb.group({
-      id:this.prodotto.id,
-      colore: ["bianco",Validators.required],
-      testo: [" ",Validators.required],
-      bordi: ["bianco",Validators.required],
-    });
+    this.prodottoForm.reset();
+    this.ngOnInit();
   }
 
   cambioColore(colore:string){
