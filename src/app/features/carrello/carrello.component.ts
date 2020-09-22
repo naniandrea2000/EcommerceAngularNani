@@ -20,8 +20,14 @@ export class CarrelloComponent implements OnInit {
   prosegui:number;
   prodotti: Prodotto[]=[];
   pagaForm:FormGroup;
+  userForm:FormGroup;
 
   totale:number = 0;
+  indirizzo:string;
+  nome:string;
+  cognome:string;
+  cliente:string;
+  spedizione:number=2;
 
   subscription=new Subscription();
 
@@ -38,6 +44,20 @@ export class CarrelloComponent implements OnInit {
     });
     console.log(this.prodotti);
     this.calcolaTotale();
+    
+
+    this.userForm = this.fb.group({
+      nome: ['', Validators.required],
+      cognome: ['', Validators.required],
+      cellulare: ['', Validators.required],
+      citta: ['', Validators.required],
+      cap: ['', Validators.required],
+      indirizzo: ['', Validators.required],
+      numero: ['', Validators.required],
+      informazioni: ['', Validators.required],
+      
+    })
+
     this.pagaForm=this.fb.group({
       method: ['',Validators.required],
       type: ['',Validators.required],
@@ -53,6 +73,11 @@ export class CarrelloComponent implements OnInit {
   back(){
     this.prosegui-=1;
   }
+
+  salvaInfo(){
+    this.indirizzo=this.userForm.get("indirizzo").value+" "+this.userForm.get("numero").value;
+    this.cliente= this.userForm.get("nome").value+" "+this.userForm.get("cognome").value;
+   }
 
   calcolaTotale(){
     this.prodotti.forEach(prodotto => {
@@ -83,12 +108,11 @@ export class CarrelloComponent implements OnInit {
       msg+=prodotto.nome+" "+prodotto.colore+" "+prodotto.prezzo+"\n";
     });
     msg+="Shipping:\n"
-    msg+="indirizzo"+" "+"citta"+" "+"cap";
-    console.log("Sto iinviando la mailllll")
+    msg+=this.indirizzo+" "+this.userForm.get("citta").value;
     const email = this.pagaForm.value;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     this.http.sendMail('https://formspree.io/xgepekey',
-        { name: "User", replyto: 'andreanani1400@gmail.com', message: msg},
+        { name: this.cliente, replyto: 'andreanani1400@gmail.com', message: msg},
         { 'headers': headers }).subscribe(
           response => {
             console.log(response+" risposta");

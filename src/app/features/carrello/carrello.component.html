@@ -56,50 +56,51 @@
         </div>
 
         <div class="step2" *ngSwitchCase="1">
-            <form>
+            <form [formGroup]="userForm" (ngSubmit)="next();salvaInfo()" ngNativeValidate>
                 <div>
                     <label for="nome" class="label">Nome</label>
-                    <input type="text" id="nome" class="form">
+                    <input type="text" id="nome" formControlName="nome" class="form" required>
                 </div>
                 <div>
-                    <label for="nome" class="label">Cognome</label>
-                    <input type="text" id="nome" class="form">
+                    <label for="cognome" class="label">Cognome</label>
+                    <input type="text" id="nome" formControlName="cognome" class="form" required>
                 </div>
                 <div>
-                    <label for="nome" class="label">Cellulare</label>
-                    <input type="text" id="nome" class="form">
+                    <label for="cellulare" class="label">Cellulare</label>
+                    <input type="text" id="nome" formControlName="cellulare" class="form" required>
                 </div>
                 <div class="inline">
-                    <label for="nome" class="label">Citta</label>
-                    <input type="text" id="nome" class="form2">
-                    <label for="nome" class="label">Cap</label>
-                    <input type="text" id="nome" class="form2">
+                    <label for="citta" class="label">Citta</label>
+                    <input type="text" id="nome" formControlName="citta" class="form2" required>
+                    <label for="cap" class="label">Cap</label>
+                    <input type="text" id="nome" formControlName="cap" class="form2" required>
                 </div>
                 <div>
-                    <label for="nome" class="label">Indirizzo</label>
-                    <input type="text" id="nome" class="form3">
+                    <label for="indirizzo" class="label">Indirizzo</label>
+                    <input type="text" id="nome" formControlName="indirizzo" class="form3" required>
                     <label for="nome" class="label">N</label>
-                    <input type="text" id="nome" class="form4">
+                    <input type="text" id="nome" formControlName="numero" class="form4" required>
                 </div>
                 <div>
-                    <label for="nome" class="label">Informazioni per corriere</label>
-                    <input type="text" id="nome" class="form">
+                    <label for="informazioni" class="label">Informazioni per corriere</label>
+                    <input type="text" id="nome" formControlName="informazioni" class="form" required>
+                </div>
+
+                <hr>
+                <div class="footer">
+                    <div class="bottone4">
+                        <a class="myButton4" (click)="back()">INDIETRO</a>
+                    </div>
+                    <div class="dots2">
+                        <span class="dot2"></span>
+                        <span class="dot1"></span>
+                        <span class="dot3"></span>
+                    </div>
+                    <div class="bottone5">
+                        <button class="myButton5" type="submit">PROSEGUI</button>
+                    </div>
                 </div>
             </form>
-            <hr>
-            <div class="footer">
-                <div class="bottone4">
-                    <a class="myButton4" (click)="back()">INDIETRO</a>
-                </div>
-                <div class="dots2">
-                    <span class="dot2"></span>
-                    <span class="dot1"></span>
-                    <span class="dot3"></span>
-                </div>
-                <div class="bottone5">
-                    <a class="myButton5" (click)="next()">PROSEGUI</a>
-                </div>
-            </div>
         </div>
 
         <div *ngSwitchCase="2">
@@ -112,11 +113,11 @@
                     <p>Spedito al sig</p>
                 </div>
                 <div class="descrizione2">
-                    <p>Samsung s10</p>
-                    <p>Nero</p>
-                    <p>nulla</p>
-                    <p>bianchi</p>
-                    <p>nulla</p>
+                    <p>{{this.prodotti.length}}</p>
+                    <p>{{this.totale | currency:'EUR'}}</p>
+                    <p>{{this.spedizione | currency:'EUR'}}</p>
+                    <p>{{this.indirizzo}}</p>
+                    <p>{{this.cliente}}</p>
                 </div>
             </div>
             <form [formGroup]="pagaForm" (ngSubmit)="inviaMail()" ngNativeValidate>
