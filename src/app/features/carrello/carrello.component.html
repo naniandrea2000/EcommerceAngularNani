@@ -9,7 +9,7 @@
     <div class="product" [ngSwitch]="prosegui">
         <div *ngSwitchCase="0">
             <ng-container *ngIf="((prodottoItem | async) && (prodottoItem | async).length > 0)">
-                <ng-container *ngFor="let item of prodottoItem | async">
+                <ng-container *ngFor="let item of prodotti">
                     <!--<ng-container *ngFor="let prodotto of prodotti">-->
                     <div class="container">
                         <img src="{{item.img2}}" class="img">
@@ -27,7 +27,7 @@
                             <p>{{item.bordi}}</p>
 
                         </div>
-                        <div class="bottone2">
+                        <div class="bottone2" (click)="rimuoviProdotto(item.id)">
                             <a class="myButton2">RIMUOVI</a>
                         </div>
                     </div>
@@ -117,15 +117,20 @@
                     <label for="nome" class="label">Seleziona metodo di pagamento</label>
                     <select name="nome" id="nome" class="form">
                             <option value="carta" class="option">Carta di credito</option>
-                        </select>
+                    </select>
                 </div>
                 <div>
                     <label for="nome" class="label">Tipo carta</label>
-                    <input type="text" id="nome" class="form">
+                    <select name="nome" id="nome" class="form">
+                            <option value="carta" class="option">Visa</option>
+                            <option value="carta" class="option">Mastercard</option>
+                            <option value="carta" class="option">Postepay</option>
+                            <option value="carta" class="option">Maestro</option>
+                    </select>
                 </div>
                 <div>
                     <label for="nome" class="label">Numero carta</label>
-                    <input type="text" id="nome" class="form5">
+                    <input id="nome" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" class="form5">
                     <label for="nome" class="label">CVC</label>
                     <input type="text" id="nome" class="form6">
                 </div>

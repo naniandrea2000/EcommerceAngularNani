@@ -3,6 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Prodotto } from 'src/app/core/model/prodotto.interface';
 import { getProdotti } from 'src/app/redux/carrello';
 import { Observable, Subscription } from 'rxjs';
+import { initCarrello } from 'src/app/redux/carrello/carrello.action';
 
 
 @Component({
@@ -13,29 +14,43 @@ import { Observable, Subscription } from 'rxjs';
 export class CarrelloComponent implements OnInit {
 
   prosegui:number;
-  //prodotti: Prodotto[];
+  prodotti: Prodotto[]=[];
 
   subscription=new Subscription();
 
   constructor(private store: Store) { }
 
-  get prodottoItem(): Observable<Prodotto[]> {    return this.store.pipe(    
-      //tap(items => console.log(JSON.stringify(items))),    
-        select(getProdotti));  
+  get prodottoItem(): Observable<Prodotto[]> {    return this.store.pipe(      
+        select(getProdotti)); 
     }
 
 
   ngOnInit(): void {
     this.prosegui=0;
+    this.prodottoItem.forEach(prodotti => {
+      this.prodotti=prodotti;
+    });
+    console.log(this.prodotti);
   }
 
   next(){
     this.prosegui+=1;
-    console.log(this.prosegui)
   }
   back(){
     this.prosegui-=1;
-    console.log(this.prosegui)
+  }
+
+  rimuoviProdotto(id:number){
+    var copy=Array.from(this.prodotti);
+    const index=copy.findIndex(x=> x.id=== id);
+    copy.splice(index,1);
+    this.prodotti=copy;
+    this.updateCarrello(this.prodotti);
+  }
+
+
+  updateCarrello(carrello: Prodotto[]){
+    this.store.dispatch(initCarrello({carrello}));
   }
 
 }
