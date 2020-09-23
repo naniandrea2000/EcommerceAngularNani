@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
     username: null,
     password: null
   }
+  show: boolean;
 
   constructor(fb: FormBuilder, private registerService: RegisterService, private router:Router) {
     this.registerForm = fb.group({
@@ -31,6 +32,10 @@ export class RegisterComponent implements OnInit {
     this.user.password=this.registerForm.get('password').value;
     this.registerService.registrazione(this.user);
     this.router.navigateByUrl('login');
+  }
+
+  password() {
+    this.show = !this.show;
   }
 
 

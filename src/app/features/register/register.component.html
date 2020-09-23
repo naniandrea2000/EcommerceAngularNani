@@ -7,8 +7,8 @@
             <input id="username" placeholder="username" formControlName="username" class="inputFields">
         </div>
         <div>
-            <input id="password" placeholder="password" formControlName="password" class="inputFieldsPassword">
-            <img src="../../../assets/icone/eye.png" alt="occhio" class="eye">
+            <input id="password" placeholder="password" formControlName="password" class="inputFieldsPassword" type="password" [type]="show ? 'text' : 'password'">
+            <img src="../../../assets/icone/eye.png" alt="occhio" class="eye" (click)="password()">
         </div>
         <br><br>
         <button type="submit">
