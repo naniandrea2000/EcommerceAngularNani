@@ -29,6 +29,31 @@
       "username": "aloi",
       "password": "1123",
       "id": 5
+    },
+    {
+      "username": "nani",
+      "password": "password",
+      "id": 6
+    },
+    {
+      "username": "nani",
+      "password": "password",
+      "id": 7
+    },
+    {
+      "username": "nani",
+      "password": "password",
+      "id": 8
+    },
+    {
+      "username": "nani",
+      "password": "password",
+      "id": 9
+    },
+    {
+      "username": "nani",
+      "password": "password",
+      "id": 10
     }
   ],
   "prodotti": [
@@ -38,7 +63,7 @@
       "img1": "/assets/img/samsung.jpg",
       "img2": "/assets/img/samsung2.jpg",
       "colore": "bianco",
-      "testo": " ",
+      "testo": "telefono",
       "bordi": "bianco",
       "prezzo": 600
     },
@@ -48,7 +73,7 @@
       "img1": "/assets/img/mac.jpg",
       "img2": "/assets/img/mac2.jpg",
       "colore": "bianco",
-      "testo": " ",
+      "testo": "mac",
       "bordi": "bianco",
       "prezzo": 1200
     },
@@ -58,7 +83,7 @@
       "img1": "/assets/img/ipad.jpg",
       "img2": "/assets/img/ipad2.jpg",
       "colore": "bianco",
-      "testo": " ",
+      "testo": "ipad",
       "bordi": "bianco",
       "prezzo": 700
     }

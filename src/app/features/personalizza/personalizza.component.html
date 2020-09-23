@@ -4,7 +4,7 @@
         <p class="scritta">Home</p>
     </div>
     <div class="over" routerLink="/carrello">
-        <p class="cart">Carrello</p>
+        <p class="cart">Carrello ({{ (prodottoItem | async).length}})</p>
         <img src="../../../assets/icone/cart.png" alt="carrello" class="carrello">
     </div>
     <p class="title">Personalizza il tuo prodotto</p>
@@ -34,9 +34,9 @@
                     <input type="radio" value="oro" formControlName="colore" (click)="cambioColore('oro')">
                     <span class="color-gold"></span>
                 </label>
-            <h5>Testo personalizzato</h5>
+            <h5>Nome dispositivo</h5>
 
-            <input type="text" id="testo" name="testo" placeholder="Inserisci testo" formControlName="testo">
+            <input type="text" id="testo" name="testo" placeholder="Inserisci testo" formControlName="testo" required>
 
             <h5>Colore bordi</h5>
             <div class="border">

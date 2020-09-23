@@ -2,9 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { filter, switchMap } from 'rxjs/operators';
 import { Prodotto } from 'src/app/core/model/prodotto.interface';
+import { getProdotti } from 'src/app/redux/carrello';
 import { aggiungiProdottoCarrello } from 'src/app/redux/carrello/carrello.action';
 import { getProdottoById } from 'src/app/redux/prodotti';
 
@@ -32,6 +33,10 @@ export class PersonalizzaComponent implements OnInit {
   // };
 
   prodottoForm: FormGroup;
+
+  get prodottoItem(): Observable<Prodotto[]> {    return this.store.pipe(      
+    select(getProdotti)); 
+}
 
   constructor(private route: ActivatedRoute, private store: Store, private fb: FormBuilder, private router: Router) { 
     this.prodottoForm = this.fb.group({
