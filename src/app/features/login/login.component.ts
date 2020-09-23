@@ -9,6 +9,7 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  show: boolean;
 
   constructor(fb: FormBuilder, private loginService: LoginService) {
     this.loginForm = fb.group({
@@ -22,6 +23,10 @@ export class LoginComponent implements OnInit {
 
   eseguiLogin() {
     this.loginService.eseguiLogin(this.loginForm.get('username').value, this.loginForm.get('password').value);
+  }
+
+  password() {
+    this.show = !this.show;
   }
 
 }

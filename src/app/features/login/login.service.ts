@@ -11,7 +11,6 @@ export class LoginService {
   constructor(private router: Router, private loginRegisterService: loginRegisterService, private store: Store) { }
 
   eseguiLogin(username: string, password: string) {
-    console.log("sono dentro")
     this.loginRegisterService.eseguiLogin(username, password).subscribe((users: User[]) => {
       if (users && users.length > 0) {
         sessionStorage.setItem("user", JSON.stringify(users[0]));
@@ -21,7 +20,7 @@ export class LoginService {
         alert("Login sbagliata RIPROVA");
       }
     }, ()=>{
-      alert("Login in errore");
+      alert("ERRRORE");
     });
 
   }
