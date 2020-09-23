@@ -120,7 +120,7 @@
                     <p>{{this.cliente}}</p>
                 </div>
             </div>
-            <form [formGroup]="pagaForm" (ngSubmit)="inviaMail()" ngNativeValidate>
+            <form [formGroup]="pagaForm" (ngSubmit)="inviaMail();acquistoEffettuato()" ngNativeValidate>
                 <div>
                     <label for="nome" class="label">Seleziona metodo di pagamento</label>
                     <select name="nome" id="nome" class="form">
@@ -157,5 +157,16 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <div *ngSwitchCase="3">
+            <div class="vuoto">
+                <h1>GRAZIE PER AVER ACQUISTATO NEL NOSTRO NEGOZIO</h1>
+                <h2>Torna alla home e continua a fare shopping!</h2>
+            </div>
+            <div class="footer">
+                <div class="bottone6">
+                    <button class="myButton5" routerLink="/home">HOME</button>
+                </div>
+            </div>
         </div>
     </div>

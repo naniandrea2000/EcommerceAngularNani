@@ -119,8 +119,14 @@ export class CarrelloComponent implements OnInit {
           }
         );
         window.alert("Acquisto effettuato")
-    this.router.navigateByUrl("/home");
+    //this.router.navigateByUrl("/home");
+    this.next();
   }
 
+
+  acquistoEffettuato(){
+    let carrello: Prodotto[] = [];
+    this.store.dispatch(initCarrello({carrello}));
+  }
 
 }

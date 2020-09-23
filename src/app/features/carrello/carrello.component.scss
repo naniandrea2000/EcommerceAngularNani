@@ -64,7 +64,7 @@
         width: 700px;
         background-color: white;
         border-style: ridge;
-        margin-left: 455px;
+        margin-left: 425px;
         box-shadow: 2px 2px #888888;
         * {
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -356,5 +356,28 @@
         }
         .step2 {
             padding-top: 10px;
+        }
+        .bottone6 {
+            position: relative;
+            padding-left: 265px;
+            padding-bottom: 20px;
+        }
+        .myButton6 {
+            background-color: rgb(193, 129, 255);
+            border: 1px solid rgb(193, 129, 255);
+            border-radius: 3px;
+            display: inline-block;
+            cursor: pointer;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 15px;
+            padding: 10px 150px;
+        }
+        .myButton6:hover {
+            background-color: rgba(129, 210, 248, 1);
+        }
+        .myButton6:active {
+            position: relative;
+            top: 1px;
         }
     }
