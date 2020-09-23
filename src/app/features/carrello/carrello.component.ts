@@ -35,7 +35,7 @@ export class CarrelloComponent implements OnInit {
 
   get prodottoItem(): Observable<Prodotto[]> {    return this.store.pipe(      
         select(getProdotti)); 
-    }
+  }
 
   ngOnInit(): void {
     this.prosegui=0;
@@ -45,7 +45,6 @@ export class CarrelloComponent implements OnInit {
     console.log(this.prodotti);
     this.calcolaTotale();
     
-
     this.userForm = this.fb.group({
       nome: ['', Validators.required],
       cognome: ['', Validators.required],
@@ -101,13 +100,12 @@ export class CarrelloComponent implements OnInit {
   }
 
   inviaMail(){
-    
-    let msg:string="Hai fatto un acquisto su nani.it\nPrezzo: "+this.totale+"\n";
+    let msg:string="Hai effettuato un acquisto su nani.it\nPrezzo: "+this.totale+"\n";
     msg+="Prodotti: "
     this.prodotti.forEach(prodotto => {
       msg+=prodotto.nome+" "+prodotto.colore+" "+prodotto.prezzo+"\n";
     });
-    msg+="Shipping:\n"
+    msg+="Ordine:\n"
     msg+=this.indirizzo+" "+this.userForm.get("citta").value;
     const email = this.pagaForm.value;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });

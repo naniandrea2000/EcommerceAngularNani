@@ -1,6 +1,6 @@
 <div class="header">
     <div class="over" routerLink="/carrello">
-        <p class="cart">Carrello </p>
+        <p class="cart">Carrello ({{ (prodottoItem | async).length}})</p>
         <img src="../../../assets/icone/cart.png" alt="carrello" class="carrello">
     </div>
     <p class="title">Welcome to Nani.it</p>

@@ -5,6 +5,7 @@ import { map, filter } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Prodotto } from 'src/app/core/model/prodotto.interface';
 import { selectProdotti } from 'src/app/redux/prodotti';
+import { getProdotti } from 'src/app/redux/carrello';
 
 
 @Component({
@@ -15,6 +16,10 @@ import { selectProdotti } from 'src/app/redux/prodotti';
 export class HomeComponent implements OnInit {
 
   id: number;
+
+  get prodottoItem(): Observable<Prodotto[]> {    return this.store.pipe(      
+    select(getProdotti)); 
+}
 
   constructor(private store: Store, private router: Router) {
     this.id=1;
