@@ -27,7 +27,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content guard">
                    <div class="content-data">
 
 
@@ -36,9 +36,11 @@
 
 
 
+
+
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li>LoginService</li>
+    <li>Guards</li>
+    <li>LoginGuard</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -51,18 +53,19 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info">
-        <p class="comment">
+        <div class="tab-pane fade active in" id="c-info">
+            <p class="comment">
             <h3>File</h3>
-        </p>
-        <p class="comment">
-            <code>src/app/features/login/login.service.ts</code>
-        </p>
+            </p>
+            <p class="comment">
+                <code>src/app/core/guards/login.guard.service.ts</code>
+            </p>
 
 
 
 
-            <section>
+
+                <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -76,7 +79,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#eseguiLogin">eseguiLogin</a>
+                                <a href="#canLoad">canLoad</a>
                             </li>
                         </ul>
                     </td>
@@ -90,18 +93,18 @@
     </table>
 </section>
 
-            <section>
+                <section>
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, loginRegisterService: <a href="../injectables/loginRegisterService.html">loginRegisterService</a>, store: Store)</code>
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, store: Store)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/features/login/login.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/core/guards/login.guard.service.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -131,18 +134,6 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>loginRegisterService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/loginRegisterService.html" target="_self" >loginRegisterService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
                                                         <td>store</td>
                                                   
                                                         <td>
@@ -163,7 +154,7 @@
         </table>
 </section>
 
-            <section>
+                <section>
     
     <h3 id="methods">
         Methods
@@ -172,26 +163,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="eseguiLogin"></a>
+                    <a name="canLoad"></a>
                     <span class="name">
                         <b>
-                            eseguiLogin
+                            canLoad
                         </b>
-                        <a href="#eseguiLogin"><span class="icon ion-ios-link"></span></a>
+                        <a href="#canLoad"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>eseguiLogin(username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>canLoad(route, segments: [])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">src/app/features/login/login.service.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">src/app/core/guards/login.guard.service.ts:14</a></div>
                 </td>
             </tr>
 
@@ -211,9 +202,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>username</td>
+                                    <td>route</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -223,9 +213,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>password</td>
+                                    <td>segments</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <code>[]</code>
                                     </td>
 
                                     <td>
@@ -240,7 +230,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>    <code>boolean |  | Promise</code>
 
                     </div>
                     <div class="io-description">
@@ -251,43 +241,36 @@
         </tbody>
     </table>
 </section>
+        </div>
 
-    </div>
 
-
-    <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Store } from &#x27;@ngrx/store&#x27;;
-import {loginRegisterService} from &#x27;src/app/core/services/login-register.service&#x27;;
+        <div class="tab-pane fade  tab-source-code" id="c-source">
+            <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Store } from &#x27;@ngrx/store&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
-import { Router } from &#x27;@angular/router&#x27;;
-import { User } from &#x27;src/app/core/model/user.interface&#x27;;
+import { CanLoad, Router } from &#x27;@angular/router&#x27;;
 import { saveCurrentUser } from &#x27;src/app/redux/login/loginRegister.action&#x27;;
 
-@Injectable()
-export class LoginService {
 
-  constructor(private router: Router, private loginRegisterService: loginRegisterService, private store: Store) { }
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class LoginGuard implements CanLoad {
 
-  eseguiLogin(username: string, password: string) {
-    this.loginRegisterService.eseguiLogin(username, password).subscribe((users: User[]) &#x3D;&gt; {
-      if (users &amp;&amp; users.length &gt; 0) {
-        sessionStorage.setItem(&quot;user&quot;, JSON.stringify(users[0]));
-        this.store.dispatch(saveCurrentUser({user: users[0]}));
-        this.router.navigateByUrl(&quot;/home&quot;);
-      }else{
-        alert(&quot;Login sbagliata RIPROVA&quot;);
-      }
-    }, ()&#x3D;&gt;{
-      alert(&quot;ERRRORE&quot;);
-    });
-
+  constructor(private router: Router, private store: Store) { }
+  
+  canLoad(route: import(&quot;@angular/router&quot;).Route, segments: import(&quot;@angular/router&quot;).UrlSegment[]): boolean | import(&quot;rxjs&quot;).Observable&lt;boolean&gt; | Promise&lt;boolean&gt; {
+    if (sessionStorage.getItem(&quot;user&quot;) !&#x3D; null) {
+      this.store.dispatch(saveCurrentUser({user: JSON.parse(sessionStorage.getItem(&quot;user&quot;))}));
+      return true;
+    } else {
+      this.router.navigateByUrl(&quot;/login&quot;);
+      return false;
+    }
   }
-}</code></pre>
-    </div>
-
+}
+</code></pre>
+        </div>
 </div>
-
-
 
 
 
@@ -314,8 +297,8 @@ export class LoginService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'LoginService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'guard';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginGuard.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

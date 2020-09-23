@@ -73,6 +73,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">
 import { NgModule } from &#x27;@angular/core&#x27;;
 import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
+import { LoginGuard } from &#x27;./core/guards/login.guard.service&#x27;;
 import { RouteGuardService } from &#x27;./route-guard.service&#x27;;
 
 
@@ -82,10 +83,10 @@ const routes: Routes &#x3D; [
   {path: &#x27;&#x27;, redirectTo: &#x27;/login&#x27;, pathMatch: &#x27;full&#x27;},
   { path: &#x27;login&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./features/login/login.module&#x27;).then(m &#x3D;&gt; m.LoginModule)&quot;, canDeactivate: [RouteGuardService] },
   { path: &#x27;signin&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./features/register/register.module&#x27;).then(m &#x3D;&gt; m.RegisterModule)&quot;, canActivate: [RouteGuardService] },
-  { path: &#x27;home&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./features/home/home.module&#x27;).then(m &#x3D;&gt; m.HomeModule)&quot; },
-  { path: &#x27;personalizza&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./features/personalizza/personalizza.module&#x27;).then(m &#x3D;&gt; m.PersonalizzaModule)&quot; },
-  { path: &#x27;personalizza/:id&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./features/personalizza/personalizza.module&#x27;).then(m &#x3D;&gt; m.PersonalizzaModule)&quot; },
-  { path: &#x27;carrello&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./features/carrello/carrello.module&#x27;).then(m &#x3D;&gt; m.CarrelloModule)&quot; }
+  { path: &#x27;home&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./features/home/home.module&#x27;).then(m &#x3D;&gt; m.HomeModule)&quot;, canLoad: [LoginGuard] },
+  { path: &#x27;personalizza&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./features/personalizza/personalizza.module&#x27;).then(m &#x3D;&gt; m.PersonalizzaModule)&quot;, canLoad: [LoginGuard]},
+  { path: &#x27;personalizza/:id&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./features/personalizza/personalizza.module&#x27;).then(m &#x3D;&gt; m.PersonalizzaModule)&quot;, canLoad: [LoginGuard] },
+  { path: &#x27;carrello&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./features/carrello/carrello.module&#x27;).then(m &#x3D;&gt; m.CarrelloModule)&quot;,canLoad: [LoginGuard] }
 ]
 
 @NgModule({

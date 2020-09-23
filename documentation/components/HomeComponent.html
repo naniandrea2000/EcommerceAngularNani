@@ -167,6 +167,9 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
+                                    <a href="#prodottoItem">prodottoItem</a>
+                                </li>
+                                <li>
                                     <a href="#prodotti">prodotti</a>
                                 </li>
                             </ul>
@@ -187,7 +190,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/features/home/home.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/features/home/home.component.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -268,8 +271,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/features/home/home.component.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/app/features/home/home.component.ts:36</a></div>
                 </td>
             </tr>
 
@@ -307,8 +310,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/features/home/home.component.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/features/home/home.component.ts:32</a></div>
                 </td>
             </tr>
 
@@ -350,7 +353,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/features/home/home.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/home/home.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -367,6 +370,28 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="prodottoItem"></a>
+                        <span class="name"><b>prodottoItem</b><a href="#prodottoItem"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>prodottoItem()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/features/home/home.component.ts:20</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="prodotti"></a>
                         <span class="name"><b>prodotti</b><a href="#prodotti"><span class="icon ion-ios-link"></span></a></span>
                     </td>
@@ -379,7 +404,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/features/home/home.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/features/home/home.component.ts:28</a></div>
                                 </td>
                             </tr>
 
@@ -397,6 +422,7 @@ import { map, filter } from &#x27;rxjs/operators&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { Prodotto } from &#x27;src/app/core/model/prodotto.interface&#x27;;
 import { selectProdotti } from &#x27;src/app/redux/prodotti&#x27;;
+import { getProdotti } from &#x27;src/app/redux/carrello&#x27;;
 
 
 @Component({
@@ -407,6 +433,10 @@ import { selectProdotti } from &#x27;src/app/redux/prodotti&#x27;;
 export class HomeComponent implements OnInit {
 
   id: number;
+
+  get prodottoItem(): Observable&lt;Prodotto[]&gt; {    return this.store.pipe(      
+    select(getProdotti)); 
+}
 
   constructor(private store: Store, private router: Router) {
     this.id&#x3D;1;
@@ -429,7 +459,7 @@ export class HomeComponent implements OnInit {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;header&quot;&gt;
     &lt;div class&#x3D;&quot;over&quot; routerLink&#x3D;&quot;/carrello&quot;&gt;
-        &lt;p class&#x3D;&quot;cart&quot;&gt;Carrello &lt;/p&gt;
+        &lt;p class&#x3D;&quot;cart&quot;&gt;Carrello ({{ (prodottoItem | async).length}})&lt;/p&gt;
         &lt;img src&#x3D;&quot;../../../assets/icone/cart.png&quot; alt&#x3D;&quot;carrello&quot; class&#x3D;&quot;carrello&quot;&gt;
     &lt;/div&gt;
     &lt;p class&#x3D;&quot;title&quot;&gt;Welcome to Nani.it&lt;/p&gt;
@@ -708,7 +738,7 @@ export class HomeComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="header">    <div class="over" routerLink="/carrello">        <p class="cart">Carrello </p>        <img src="../../../assets/icone/cart.png" alt="carrello" class="carrello">    </div>    <p class="title">Welcome to Nani.it</p></div><div class="background">    <div class="carousel">        <div class="carousel-inner">            <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">            <div class="carousel-item">                <img src="../../../assets/img/samsung.jpg" class="carosello">            </div>            <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">            <div class="carousel-item">                <img src="../../../assets/img/mac.jpg" class="carosello">            </div>            <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">            <div class="carousel-item">                <img src="../../../assets/img/ipad.jpg" class="carosello">            </div>            <label for="carousel-3" class="carousel-control prev control-1" (click)="this.id=3">‹</label>            <label for="carousel-2" class="carousel-control next control-1" (click)="this.id=2">›</label>            <label for="carousel-1" class="carousel-control prev control-2" (click)="this.id=1">‹</label>            <label for="carousel-3" class="carousel-control next control-2" (click)="this.id=3">›</label>            <label for="carousel-2" class="carousel-control prev control-3" (click)="this.id=2">‹</label>            <label for="carousel-1" class="carousel-control next control-3" (click)="this.id=1">›</label>            <ol class="carousel-indicators">                <li>                    <label for="carousel-1" class="carousel-bullet">•</label>                </li>                <li>                    <label for="carousel-2" class="carousel-bullet">•</label>                </li>                <li>                    <label for="carousel-3" class="carousel-bullet">•</label>                </li>            </ol>        </div>    </div>    <div class="bottone" (click)="personalizza()">        <a class="myButton">PERSONALIZZA ORA</a>    </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="header">    <div class="over" routerLink="/carrello">        <p class="cart">Carrello ({{ (prodottoItem | async).length}})</p>        <img src="../../../assets/icone/cart.png" alt="carrello" class="carrello">    </div>    <p class="title">Welcome to Nani.it</p></div><div class="background">    <div class="carousel">        <div class="carousel-inner">            <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">            <div class="carousel-item">                <img src="../../../assets/img/samsung.jpg" class="carosello">            </div>            <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">            <div class="carousel-item">                <img src="../../../assets/img/mac.jpg" class="carosello">            </div>            <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">            <div class="carousel-item">                <img src="../../../assets/img/ipad.jpg" class="carosello">            </div>            <label for="carousel-3" class="carousel-control prev control-1" (click)="this.id=3">‹</label>            <label for="carousel-2" class="carousel-control next control-1" (click)="this.id=2">›</label>            <label for="carousel-1" class="carousel-control prev control-2" (click)="this.id=1">‹</label>            <label for="carousel-3" class="carousel-control next control-2" (click)="this.id=3">›</label>            <label for="carousel-2" class="carousel-control prev control-3" (click)="this.id=2">‹</label>            <label for="carousel-1" class="carousel-control next control-3" (click)="this.id=1">›</label>            <ol class="carousel-indicators">                <li>                    <label for="carousel-1" class="carousel-bullet">•</label>                </li>                <li>                    <label for="carousel-2" class="carousel-bullet">•</label>                </li>                <li>                    <label for="carousel-3" class="carousel-bullet">•</label>                </li>            </ol>        </div>    </div>    <div class="bottone" (click)="personalizza()">        <a class="myButton">PERSONALIZZA ORA</a>    </div></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CarrelloComponent', 'selector': 'app-carrello'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'PersonalizzaComponent', 'selector': 'app-personalizza'},{'name': 'RegisterComponent', 'selector': 'app-register'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomeComponent'};

@@ -54,6 +54,21 @@
       "username": "nani",
       "password": "password",
       "id": 10
+    },
+    {
+      "username": "nani",
+      "password": "password",
+      "id": 11
+    },
+    {
+      "username": "andreanani",
+      "password": "123",
+      "id": 12
+    },
+    {
+      "username": "nani",
+      "password": "password",
+      "id": 13
     }
   ],
   "prodotti": [

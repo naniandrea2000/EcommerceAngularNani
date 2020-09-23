@@ -303,6 +303,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="guards-links"' : 'id="xs-guards-links"' }>
                             <li class="link">
+                                <a href="guards/LoginGuard.html" data-type="entity-link">LoginGuard</a>
+                            </li>
+                            <li class="link">
                                 <a href="guards/RouteGuardService.html" data-type="entity-link">RouteGuardService</a>
                             </li>
                         </ul>
